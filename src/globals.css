@@ -115,8 +115,6 @@ html {
 .split-text {
     overflow: hidden;
     white-space: nowrap;
-    z-index: 2;
-    position: absolute;
 }
 
 .squircle {
@@ -125,7 +123,7 @@ html {
 
 
 .mobile-message {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 1000;
     background: black;
@@ -137,12 +135,6 @@ html {
     color: white;
 }
 
-@media (max-width: 1000px) {
-    .mobile-message {
-        display: flex;
-    }
-}
-
 .hover-underline::after {
     content: '';
     width: 0;
@@ -150,14 +142,13 @@ html {
     background-color: white;
     position: absolute;
     left: 0;
-    bottom: 0px;
-    transition: width .3s ease;
+    top: 50%;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    transition: width .3s ease height .3s ease;
 }
 
 .hover-underline:hover::after {
-    width: 100%;
-}
-
-.hover-underline:not(:hover) {
-  filter: blur(2px);
+    width: 1rem;
+    height: 1rem;
 }

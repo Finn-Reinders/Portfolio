@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../globals.css";
+import { langHover, resetCursor } from './Cursor';
 
 export default function SplitText({
+  hover, 
   text = "",
   children,
   className = "",
@@ -10,13 +12,14 @@ export default function SplitText({
   style = {},
   thicken = false,
   animationDelay = 0,
+  fontWeight = 200,
 } = {}) {
   const name =
     typeof children === "string" && children.length ? children : text;
   const characters = String(name).split("");
   const startY = textSize;
 
-  const fontWeight1 = 200;
+  const fontWeight1 = fontWeight;
   const fontWeight2 = 600;
 
 
@@ -25,9 +28,11 @@ export default function SplitText({
 
   return (
     <motion.h1
-    transition={{
-      duration: 2,
-    }}
+      onMouseEnter={hover}
+      onMouseLeave={resetCursor}
+      transition={{
+        duration: 2,
+      }}
       style={{ fontSize: textSize, ...style }}
       className={`split-text ${className}`.trim()}
     >

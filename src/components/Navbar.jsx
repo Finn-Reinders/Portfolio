@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SplitText from "./SplitText";
+import { langHover } from './Cursor';
 
 export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
@@ -84,15 +85,19 @@ export default function Navbar() {
                       <li className='h-5 w-full flex items-center'>
                         <SplitText
                           className="leading-8 hover-underline"
-                          textSize="1.25rem"
+                          textSize="1rem"
                           text="English"
+                          hover={langHover}
+                          fontWeight={400}
                         />
                       </li>
                       <li className='h-5 w-full flex items-center'>
                         <SplitText
-                          className="leading-8 hover-underline"
-                          textSize="1.25rem"
+                          hover={langHover}
+                          className="leading-8 hover-underline font-bold"
+                          textSize="1rem"
                           text="Nederlands"
+                          fontWeight={400}
                         />
                       </li>
                     </ul>

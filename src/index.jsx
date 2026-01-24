@@ -29,16 +29,25 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+
+  let isMobile = false;
+  if (navigator.userAgentData && navigator.userAgentData.mobile) {
+    isMobile = true;
+  } else if (navigator.userAgent) {
+    isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  }
+
   return (
     <>
-      {pageLoaded ? (
+      {isMobile ? (
+        <MobileMessage />
+      ) : pageLoaded ? (
         <>
           <Navbar />
           <Hero />
           <Main />
           <Footer />
           <ScrollIndicator />
-          <MobileMessage />
         </>
       ) : (
         <Loader />

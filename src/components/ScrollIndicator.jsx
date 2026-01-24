@@ -2,7 +2,7 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function ScrollIndicator() {
-  let showIndicator = true;
+  let showIndicator = false;
   function scrollCheck() {
     window.addEventListener("scroll", () => {});
   }

@@ -5,6 +5,7 @@ import SplitText from "./SplitText.jsx";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
 import { Box, Cone, Torus, Dodecahedron } from "./Shapes.jsx";
+import { langHover } from './Cursor.jsx';
 
 export default function Hero() {
   const [pageLoaded, setPageLoaded] = useState(false);
@@ -30,7 +31,7 @@ export default function Hero() {
   const textScroll = useTransform(
     sectionScrollProgress,
     [0, 1],
-    ["0rem", "100rem"],
+    ["0%", "100%"],
   );
 
   const canvasBlur = useTransform(sectionScrollProgress, [0, 1], [
@@ -62,20 +63,19 @@ export default function Hero() {
           }}
           className="z-[1] top-[57px] relative h-[calc(100%-57px)] w-full overflow-hidden"
         >
-          {" "}
           <motion.div
-            initial={{ scale: 2 }}
+            initial={{ scale: 3 }}
             animate={pageLoaded ? { scale: 1 } : undefined}
             transition={{ duration: 1, ease: [0.82, 0.05, 0.27, 1] }}
             className="relative w-full h-full"
           >
             {pageLoaded && (
-              <div className="background absolute inset-0 z-0">
+              <div className="background absolute inset-0 z-10">
                 <SplitText
                   style={{ left: textScroll }}
                   className="p-[2rem] text-background top-[calc(50%-4.5rem)] translate-y-[-50%]"
                   text="FinnReinders"
-                  textSize={"12rem"}
+                  textSize="12rem"
                   thicken={true}
                   animationDelay={0.7}
                 />
@@ -89,7 +89,7 @@ export default function Hero() {
                 />
               </div>
             )}
-            <motion.div className="absolute inset-0 z-10" style={{ filter: canvasBlur }}>
+            <motion.div className="absolute inset-0 z-[9]" style={{ filter: canvasBlur }}>
               <Canvas
                 resize={{ offsetSize: true }}
                 dpr={[1, 1.5]}
