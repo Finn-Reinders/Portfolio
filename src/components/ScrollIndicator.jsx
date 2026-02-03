@@ -17,7 +17,7 @@ export default function ScrollIndicator() {
             duration: 1,
             ease: 'backInOut',
           }}
-          className="squircle fixed bottom-5 flex justify-center items-center px-5 py-2 left-[50%] translate-x-[-50%] bg-black border-[2px] border-white border-opacity-50 z-[100] bg-opacity-75 rounded-3xl text-white"
+          className="squircle fixed bottom-5 flex justify-center items-center px-5 py-2 left-[50%] translate-x-[-50%] bg-black border-[2px] border-opacity-50 z-[100] bg-opacity-75 rounded-3xl text-white"
         >
           Scroll
         </motion.div>

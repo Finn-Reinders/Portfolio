@@ -1,16 +1,21 @@
 import { createRoot } from "react-dom/client";
 import "./globals.css";
-import Hero from "./components/Hero";
 import Cursor from "./components/Cursor";
-import Main from "./components/Main";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 import Lenis from "@studio-freight/lenis";
-import ScrollIndicator from "./components/ScrollIndicator";
 import MobileMessage from "./components/Mobile";
 import Loader from "./components/Loader";
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Project from './pages/Project';
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import WIP from "./components/Wip";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {path: "/", element: <Home />},
+  {path: "/contact", element: <Contact />},
+  {path: "/projects/:projectName", element: <Project />},
+]);
 
 const lenis = new Lenis();
 
@@ -25,10 +30,9 @@ function App() {
   const [pageLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 2000);
+    const timer = setTimeout(() => setIsLoaded(true), 0);
     return () => clearTimeout(timer);
   }, []);
-
 
   let isMobile = false;
   if (navigator.userAgentData && navigator.userAgentData.mobile) {
@@ -39,20 +43,11 @@ function App() {
 
   return (
     <>
-      {isMobile ? (
-        <MobileMessage />
-      ) : pageLoaded ? (
-        <>
-          <Navbar />
-          <Hero />
-          <Main />
-          <Footer />
-          <ScrollIndicator />
-        </>
-      ) : (
-        <Loader />
-      )}
+      {isMobile ? (<MobileMessage />) 
+      : 
+      (<RouterProvider router={router} />)}
       <Cursor />
+      <WIP />
     </>
   );
 }

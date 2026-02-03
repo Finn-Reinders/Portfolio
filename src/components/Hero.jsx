@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import SplitText from "./SplitText.jsx";
+import { SplitText } from "./SplitText.jsx";
 import { Canvas } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
 import { Box, Cone, Torus, Dodecahedron } from "./Shapes.jsx";
@@ -26,7 +26,7 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const scrollScale = useTransform(sectionScrollProgress, [0, 1], [1, 0.5]);
+  const scrollScale = useTransform(sectionScrollProgress, [0, 1], [1, 0.75]);
 
   const textScroll = useTransform(
     sectionScrollProgress,
@@ -41,10 +41,10 @@ export default function Hero() {
 
 
   return (
-    <div ref={sectionParent} className="h-[150vh] z-2 relative">
+    <div ref={sectionParent} className="h-[100vh] z-2 relative">
       <section className="sticky top-0 justify-center h-screen px-3 pb-3">
         <motion.div
-          style={{ scale: scrollScale }}
+          // style={{ scale: scrollScale }}
           initial={{
             clipPath: "inset(50% round 12px)",
             filter: "blur(20px)",
@@ -78,6 +78,7 @@ export default function Hero() {
                   textSize="12rem"
                   thicken={true}
                   animationDelay={0.7}
+                  type='char'
                 />
                 <SplitText
                   style={{ right: textScroll }}
@@ -86,11 +87,12 @@ export default function Hero() {
                   className="p-[2rem] text-background top-[calc(50%+4.5rem)] translate-y-[-50%]"
                   thicken={true}
                   animationDelay={0.7}
+                  type='char'
                 />
               </div>
             )}
             <motion.div className="absolute inset-0 z-[9]" style={{ filter: canvasBlur }}>
-              <Canvas
+              {/* <Canvas
                 resize={{ offsetSize: true }}
                 dpr={[1, 1.5]}
                 className="w-full h-full"
@@ -109,7 +111,7 @@ export default function Hero() {
                   <Torus color="#1E40AF" position={[7.3, 0.9, -1.9]} />
                 </group>
                 <Environment preset="studio" />
-              </Canvas>
+              </Canvas> */}
             </motion.div>
           </motion.div>
         </motion.div>
