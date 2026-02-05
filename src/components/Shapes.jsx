@@ -1,81 +1,37 @@
-import React from "react";
-import { Float } from "@react-three/drei";
+import { Float, useTexture } from "@react-three/drei";
+import { useRef, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
 
-function normalizeVec3(value, fallback = [0, 0, 0]) {
-  if (Array.isArray(value) && value.length === 3) return value;
-  return fallback;
-}
+export default function Plane({ size = [1, 1], pos = [0, 0, 0], texture, intensity = 1, speed = 1, rotationIntensity = 1 }) {
+  const tex = useTexture(texture);
+  const meshRef = useRef();
 
-function normalizeBoxSize(size, fallback = [1, 1, 1]) {
-  if (Array.isArray(size)) {
-    if (size.length === 3) return size;
-    if (size.length === 1 && typeof size[0] === "number") return [size[0], size[0], size[0]];
-  }
-  if (typeof size === "number") return [size, size, size];
-  return fallback;
-}
+  // small random phase so each plane moves differently
+  const phase = useMemo(() => Math.random() * Math.PI * 2, []);
 
-function Box({ color = "#ffffff", position = [0, 0, 0], size = 1 }) {
-  const meshPosition = normalizeVec3(position);
-  const boxSize = normalizeBoxSize(size);
+  // Determine texture aspect safely (use a fallback if image isn't loaded yet)
+  const texAspect = tex && tex.image && tex.image.width && tex.image.height
+    ? tex.image.width / tex.image.height
+    : size[0] / size[1];
+
+  // Use the provided width (size[0]) and compute height to preserve texture aspect
+  const width = size[0];
+  const height = width / texAspect;
+
+  // apply a small per-frame offset on top of Drei's Float so motion patterns differ
+  useFrame(({ clock }) => {
+    if (!meshRef.current) return;
+    const t = clock.getElapsedTime();
+    meshRef.current.position.y = pos[1] + Math.sin(t * speed + phase) * (intensity * 0.12);
+    meshRef.current.rotation.z = Math.sin(t * speed * 0.7 + phase) * (rotationIntensity * 0.12);
+  });
+
   return (
-    <Float floatingRange={0.1} floatIntensity={2} rotationIntensity={2}>
-      <mesh position={meshPosition}>
-        <boxGeometry args={boxSize} />
-        <meshPhysicalMaterial ior={1} roughness={0.3} color={color} />
+    <Float speed={speed} floatIntensity={Math.max(0.001, intensity * 0.6)} rotationIntensity={Math.max(0.01, rotationIntensity * 0.18)}>
+      <mesh ref={meshRef} position={pos}>
+        <planeGeometry args={[width, height]} />
+        <meshStandardMaterial map={tex} transparent />
       </mesh>
     </Float>
   );
 }
-
-function Torus({
-  color = "#ffffff",
-  position = [0, 0, 0],
-  radius = 0.7,
-  tube = 0.2,
-  radialSegments = 16,
-  tubularSegments = 64,
-  arc = Math.PI * 2,
-}) {
-  const meshPosition = normalizeVec3(position);
-  return (
-    <Float floatingRange={0.1} floatIntensity={2} rotationIntensity={2}>
-      <mesh position={meshPosition}>
-        <torusGeometry args={[radius, tube, radialSegments, tubularSegments, arc]} />
-        <meshPhysicalMaterial ior={1.4} roughness={0} color={color} />
-      </mesh>
-    </Float>
-  );
-}
-
-function Cone({
-  color = "#ffffff",
-  position = [0, 0, 0],
-  radius = 0.7,
-  height = 1.2,
-  radialSegments = 32,
-}) {
-  const meshPosition = normalizeVec3(position);
-  return (
-    <Float floatingRange={0.1} floatIntensity={2} rotationIntensity={2}>
-      <mesh position={meshPosition}>
-        <coneGeometry args={[radius, height, radialSegments]} />
-        <meshPhysicalMaterial ior={1.4} roughness={0} color={color} />
-      </mesh>
-    </Float>
-  );
-}
-
-function Dodecahedron({ color = "#ffffff", position = [0, 0, 0], radius = 0.8, detail = 0 }) {
-  const meshPosition = normalizeVec3(position);
-  return (
-    <Float floatingRange={0.1} floatIntensity={2} rotationIntensity={2}>
-      <mesh position={meshPosition}>
-        <dodecahedronGeometry args={[radius, detail]} />
-        <meshPhysicalMaterial ior={1.4} roughness={0} color={color} />
-      </mesh>
-    </Float>
-  );
-}
-
-export { Box, Cone, Dodecahedron, Torus };

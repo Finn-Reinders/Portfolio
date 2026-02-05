@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SplitText } from "./SplitText";
 import { langHover } from "./Cursor";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
@@ -43,12 +44,11 @@ export default function Navbar() {
         <div className="px-20 content z-10 relative flex items-center justify-between h-full w-full">
           <h2 className="text-black font-extrabold text-xl"></h2>
           <div className="gap-3 flex text-sm flex-row text-gray-700 font-[550] font-['Chillax']">
-            <a
-              href="/projects"
-              className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300"
-            >
-              <span className="uppercase">projects</span>
-            </a>
+            <div className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300">
+              <Link to={"/"}>
+                <span className="uppercase">projects</span>
+              </Link>
+            </div>
             <a
               href="/contact"
               className="w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-md hover:bg-neutral-100 transition duration-300"
@@ -82,27 +82,27 @@ export default function Navbar() {
                     transition={{ duration: 0.55, ease: "easeInOut" }}
                   >
                     <ul className="text-white w-full h-full flex flex-col justify-center gap-1 px-4 font-sans text-lg language">
-                        <SplitText
-                          className="leading-[1] font-['Chillax']"
-                          paddingBottom="4px"
-                          textSize="1rem"
-                          text="English"
-                          hover={langHover}
-                          fontWeight={400}
-                          animationDelay={0.45}
-                          type="word"
-                          tag='li'
-                        />
-                        <SplitText
-                          hover={langHover}
-                          className="leading-[1] font-['Chillax']"
-                          textSize="1rem"
-                          text="Nederlands"
-                          fontWeight={400}
-                          animationDelay={0.45}
-                          type="word"
-                          tag='li'
-                        />
+                      <SplitText
+                        className="leading-[1] font-['Chillax']"
+                        paddingBottom="4px"
+                        textSize="1rem"
+                        text="English"
+                        hover={langHover}
+                        fontWeight={400}
+                        animationDelay={0.45}
+                        type="word"
+                        tag="li"
+                      />
+                      <SplitText
+                        hover={langHover}
+                        className="leading-[1] font-['Chillax']"
+                        textSize="1rem"
+                        text="Nederlands"
+                        fontWeight={400}
+                        animationDelay={0.45}
+                        type="word"
+                        tag="li"
+                      />
                     </ul>
                   </motion.div>
                 )}

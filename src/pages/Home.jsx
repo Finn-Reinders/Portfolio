@@ -5,17 +5,16 @@ import ScrollIndicator from "../components/ScrollIndicator";
 import Spacer from "../components/Spacer";
 import Projects from "../components/Projects";
 import { motion } from "framer-motion";
+import Inner from '../components/Inner';
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
+    <Inner>
       <Hero />
-      <Spacer />
       <Projects />
       <Spacer />
       <Footer />
       <ScrollIndicator />
-    </>
+    </Inner>
   );
 }

@@ -16,6 +16,7 @@ export const SplitText = ({
   tag = "h1",
   paddingBottom = "0px",
   play = true,
+  ...motionProps
 }) => {
   let characters;
   if (type === "char") {
@@ -37,15 +38,16 @@ export const SplitText = ({
 
   const duration = 0.75;
 
+  const rootProps = { ...motionProps };
+  if (!rootProps.transition) rootProps.transition = { duration: 2 };
+  rootProps.onMouseEnter = hover;
+  rootProps.onMouseLeave = resetCursor;
+  rootProps.style = { fontSize: textSize, ...style, ...(rootProps.style || {}) };
+  rootProps.className = `overflow-hidden ${className}`.trim();
+
   return React.createElement(
     motion[tag] || motion.h1,
-    {
-      onMouseEnter: hover,
-      onMouseLeave: resetCursor,
-      transition: { duration: 2 },
-      style: { fontSize: textSize, ...style },
-      className: `overflow-hidden ${className}`.trim(),
-    },
+    rootProps,
     characters.map((char, i) => {
       const delay =
         type === "char" ? animationDelay + 0.05 * i : animationDelay + 0.01 * i;

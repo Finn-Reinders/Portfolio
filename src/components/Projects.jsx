@@ -30,27 +30,31 @@ function ProjectCard({ proj, i }) {
         delay: 0.1,
       },
     },
-    exit: { clipPath: "inset(0% 50%)", transition: { duration: 0 } },
+    exit: { 
+      clipPath: "inset(0% 50%)", 
+      transition: { 
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1]
+      } 
+    },
   };
 
   const [projectHovered, setProjectHovered] = useState(false);
   const [linkHovered, setLinkHovered] = useState(false);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        initial="initial"
-        whileInView="enter"
-        exit="exit"
-        viewport={{ once: false, amount: 0 }}
-        variants={variants}
-        onViewportEnter={() => setInView(true)}
-        onViewportLeave={() => setInView(false)}
-        style={{ backgroundColor: "#000", height: "14rem" }}
-        className="w-screen origin-right p-8 items-center"
-        onHoverStart={() => setProjectHovered(true)}
-        onHoverEnd={() => setProjectHovered(false)}
-      >
+    <motion.div
+      initial="initial"
+      animate={inView ? "enter" : "initial"}
+      exit="exit"
+      variants={variants}
+      onViewportEnter={() => setInView(true)}
+      onViewportLeave={() => setInView(false)}
+      style={{ backgroundColor: "#000", height: "14rem" }}
+      className="w-screen origin-right p-8 items-center"
+      onHoverStart={() => setProjectHovered(true)}
+      onHoverEnd={() => setProjectHovered(false)}
+    >
         {inView && (
           <motion.header className="w-full h-full items-center flex justify-center relative">
             <SplitText
@@ -120,6 +124,5 @@ function ProjectCard({ proj, i }) {
           </motion.header>
         )}
       </motion.div>
-    </AnimatePresence>
   );
 }

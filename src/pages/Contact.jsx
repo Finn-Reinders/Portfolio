@@ -1,5 +1,7 @@
+import Inner from '../components/Inner';
+
 export default function Contact() {
     return(
-        <div>Hello Test World</div>
+        <Inner>Hello Test World</Inner>
     )
 }
