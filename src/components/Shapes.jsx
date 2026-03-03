@@ -2,6 +2,11 @@ import { Float, useTexture } from "@react-three/drei";
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 
+// Preload textures to avoid blocking
+export const preloadTextures = (urls) => {
+  urls.forEach((url) => useTexture.preload(url));
+};
+
 export default function Plane({ size = [1, 1], pos = [0, 0, 0], texture, intensity = 1, speed = 1, rotationIntensity = 1 }) {
   const tex = useTexture(texture);
   const meshRef = useRef();

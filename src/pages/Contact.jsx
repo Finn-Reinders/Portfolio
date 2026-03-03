@@ -1,7 +1,10 @@
-import Inner from '../components/Inner';
+import Inner from "../components/Inner";
+import Footer from '../components/Footer'
 
 export default function Contact() {
-    return(
-        <Inner>Hello Test World</Inner>
-    )
+  return (
+    <Inner>
+      <Footer />
+    </Inner>
+  );
 }

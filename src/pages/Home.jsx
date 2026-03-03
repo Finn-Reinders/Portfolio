@@ -6,15 +6,15 @@ import Spacer from "../components/Spacer";
 import Projects from "../components/Projects";
 import { motion } from "framer-motion";
 import Inner from '../components/Inner';
+import AboutMe from '../components/AboutMe';
 
 export default function Home() {
   return (
     <Inner>
       <Hero />
+      <AboutMe />
       <Projects />
-      <Spacer />
       <Footer />
-      <ScrollIndicator />
     </Inner>
   );
 }

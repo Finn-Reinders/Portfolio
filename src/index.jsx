@@ -3,7 +3,7 @@ import "./globals.css";
 import Cursor from "./components/Cursor";
 import Lenis from "@studio-freight/lenis";
 import MobileMessage from "./components/Mobile";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WIP from "./components/Wip";
 import App from "./components/App";
 import {
@@ -12,11 +12,13 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Project from "./pages/Project";
 import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
+import ScrollIndicator from "./components/ScrollIndicator";
 
 const lenis = new Lenis();
 
@@ -28,7 +30,28 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 function Index() {
-  const [pageLoaded] = useState(true);
+  const [pageLoaded, setPageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Wait for the entire page to load (images, fonts, etc.)
+    const handleLoad = async () => {
+      // Wait for all fonts to be loaded
+      await document.fonts.ready;
+
+      // Add a small delay to ensure everything is rendered
+      setTimeout(() => {
+        setPageLoaded(true);
+      }, 100);
+    };
+
+    // Check if document is already loaded
+    if (document.readyState === "complete") {
+      handleLoad();
+    } else {
+      window.addEventListener("load", handleLoad);
+      return () => window.removeEventListener("load", handleLoad);
+    }
+  }, []);
 
   let isMobile = false;
   if (navigator.userAgentData && navigator.userAgentData.mobile) {
@@ -41,7 +64,7 @@ function Index() {
     const location = useLocation();
 
     return (
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => lenis.scrollTo(0, { immediate: true })}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
@@ -53,14 +76,24 @@ function Index() {
 
   return (
     <>
-    {
-    pageLoaded && (
-      <Router>
-        <Navbar />
-        <AnimatedRoutes />
-      </Router>
-    )}
-    <Cursor />
+      <AnimatePresence mode="wait">
+        {!pageLoaded && <Loader key="loader" />}
+      </AnimatePresence>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: pageLoaded ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {pageLoaded && (
+          <Router>
+            <Navbar />
+            <ScrollIndicator />
+            <AnimatedRoutes />
+          </Router>
+        )}
+      </motion.div>
+      <Cursor />
     </>
   );
 }

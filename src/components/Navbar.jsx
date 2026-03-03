@@ -39,7 +39,7 @@ export default function Navbar() {
         exit="exit"
         animate="enter"
         variants={navVariants}
-        className="flex z-20 w-screen fixed h-[57px]"
+        className="flex z-20 w-screen fixed mt-[-57px] h-[57px]"
       >
         <div className="px-20 content z-10 relative flex items-center justify-between h-full w-full">
           <h2 className="text-black font-extrabold text-xl"></h2>
@@ -49,8 +49,8 @@ export default function Navbar() {
                 <span className="uppercase">projects</span>
               </Link>
             </div>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-md hover:bg-neutral-100 transition duration-300"
             >
               <span>
@@ -61,7 +61,7 @@ export default function Navbar() {
                   ></path>
                 </svg>
               </span>
-            </a>
+            </Link>
             <div className="relative">
               <button
                 onClick={handleToggle}
@@ -77,7 +77,7 @@ export default function Navbar() {
                     animate="open"
                     exit="closed"
                     variants={langVariants}
-                    className="justify-center items-center rounded-xl absolute w-32 h-28 flex bg-[rgba(1,1,1,.4)] backdrop-blur-sm top-[calc(100%+0.5rem)] right-0 z-50"
+                    className="justify-center items-center rounded-xl absolute w-32 h-28 flex bg-[rgba(1,1,1,.4)] backdrop-blur-md top-[calc(100%+0.5rem)] right-0 z-50"
                     style={{ isolation: "isolate" }}
                     transition={{ duration: 0.55, ease: "easeInOut" }}
                   >

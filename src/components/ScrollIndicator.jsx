@@ -8,7 +8,7 @@ export default function ScrollIndicator() {
   }
   return (
     <AnimatePresence>
-      {showIndicator ? (
+      {showIndicator && (
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1  }}
@@ -17,11 +17,11 @@ export default function ScrollIndicator() {
             duration: 1,
             ease: 'backInOut',
           }}
-          className="squircle fixed bottom-5 flex justify-center items-center px-5 py-2 left-[50%] translate-x-[-50%] bg-black border-[2px] border-opacity-50 z-[100] bg-opacity-75 rounded-3xl text-white"
+          className="fixed scroll-indicator backdrop-blur-sm mix-blend-difference bottom-5 flex justify-center items-center px-5 py-2 left-[50%] translate-x-[-50%] z-[100] rounded-3xl text-white"
         >
           Scroll
         </motion.div>
-      ) : null}
+      )}
     </AnimatePresence>
   );
 }

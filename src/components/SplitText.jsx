@@ -11,6 +11,7 @@ export const SplitText = ({
   style = {},
   thicken = false,
   animationDelay = 0,
+  href = null,
   fontWeight = 200,
   type = "",
   tag = "h1",
@@ -58,7 +59,7 @@ export const SplitText = ({
         <span
           key={`wrapper_${i}`}
           style={{
-            paddingBottom: paddingBottom,
+            paddingBottom,
             ...(type === "char" ? {} : { overflow: "hidden" }),
           }}
           className="relative inline-block w-fit"
