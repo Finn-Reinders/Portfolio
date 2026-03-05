@@ -7,29 +7,6 @@ import { projectsArr } from "../data/projectData";
 export default function Projects({ projects }) {
   const list = projects || projectsArr;
   return (
-    <>
-      {/* <svg width='100%' viewBox='0 -15 100 15'>
-  <path fill='none' id='path' stroke='green' strokeWidth='' d='M 0 0 L 100 0' />
-  <text fontSize='1rem'>
-    <textPath href='#path'>
-      Projects
-    </textPath>
-  </text>
-</svg> */}
-      <header className='flex gap-4 bg-black'>
-        {[...Array(8)].map((_, i) => {
-          return (
-            <SplitText
-              key={`split-text${i}`}
-              text="Projects"
-              tag="h1"
-              type="char"
-              textSize="4rem"
-              className="text-white font-['Instrument']"
-            />
-          );
-        })}
-      </header>
       <section
         style={{ height: list.length * 8.75 + "rem" }}
         className="flex flex-col gap-3 w-screen mt-4"
@@ -38,7 +15,6 @@ export default function Projects({ projects }) {
           return <ProjectCard proj={proj} i={i} key={`project_${i}`} />;
         })}
       </section>
-    </>
   );
 }
 

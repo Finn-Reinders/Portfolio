@@ -1,8 +1,8 @@
 export const projectsArr = [
   {
     projectName: "portfolio-website",
-    name: "Portfolio",
-    src: "https://images.unsplash.com/photo-1768813282031-2aec62eee8b7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    name: "Placeholder",
+    src: "/assets/images/dawg.jpg",
     bg: "hsl(124 100 22)",
     description:
       "A personal portfolio website showcasing my web development skills, creative projects, and design philosophy. Built with modern technologies, it features interactive animations, responsive layouts, and a curated selection of work, offering visitors an engaging and immersive experience. The site also includes a contact form and links to my social profiles.",
@@ -16,7 +16,7 @@ export const projectsArr = [
   },
   {
     projectName: "smoothie-website",
-    name: "Smoothie",
+    name: "Placeholder",
     src: "https://github.com/olivierlarose/zoom-parallax/blob/main/public/images/1.jpeg?raw=true",
     bg: "hsl(124 100 22)",
     description:
@@ -24,7 +24,7 @@ export const projectsArr = [
   },
   {
     projectName: "movie-website",
-    name: "Movie",
+    name: "Placeholder",
     src: "https://github.com/olivierlarose/zoom-parallax/blob/main/public/images/3.jpg?raw=true",
     bg: "hsl(124 100 22)",
     description:

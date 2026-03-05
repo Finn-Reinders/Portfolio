@@ -22,8 +22,6 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const scrollScale = useTransform(sectionScrollProgress, [0, 1], [1, 0.75]);
-
   const heroAnim = {
     initial: { clipPath: "inset(50% round 12px)", filter: "blur(20px)" },
     enter: { clipPath: "inset(0% round 12px)", filter: "blur(0px)" },
@@ -32,7 +30,7 @@ export default function Hero() {
 
   const splitAnim = {
     initial: { backdropFilter: "blur(0px)" },
-    enter: { backdropFilter: "blur(12px)", transition: {delay: 1, duration: 1} },
+    enter: { backdropFilter: "blur(0px)", transition: {delay: 1, duration: 1} },
     exit: { backdropFilter: "blur(0px)" },
   };
 
@@ -66,8 +64,8 @@ export default function Hero() {
               <SplitText
                 {...anim(splitAnim)}
                 text="Front-End Dev"
-                textSize="6rem"
-                className="whitespace-nowrap absolute leading-[1] rounded-[1rem] backdrop-blur-sm text-white tracking-[-.4rem] px-8 font-['Instrument'] top-[calc(50%+4rem)] translate-y-[-50%]"
+                textSize="5rem"
+                className="whitespace-nowrap absolute leading-[1] rounded-[1rem] backdrop-blur-sm text-white tracking-[-.4rem] px-8 font-['Instrument'] top-[calc(50%+3rem)] translate-y-[-50%]"
                 animationDelay={0.7}
                 type="char"
               />

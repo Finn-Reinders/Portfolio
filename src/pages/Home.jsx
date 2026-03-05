@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <Inner>
       <Hero />
-      <AboutMe />
       <Projects />
       <Footer />
     </Inner>

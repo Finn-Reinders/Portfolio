@@ -8,7 +8,7 @@
     box-sizing: border-box;
     user-select: none;
     -webkit-user-drag: none;
-    cursor: none;
+    /* cursor: none; */
 }
 
 ::-webkit-scrollbar {
@@ -117,6 +117,17 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+}
+
+.project-title {
+    transform-style: preserve-3d;
+    perspective: 100px;
+    perspective-origin: center;
+}
+
+.preserve {
+    transform-style: preserve-3d;
+    perspective: 100px;
 }
 
 
