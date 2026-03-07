@@ -1,9 +1,49 @@
+const technologies = {
+  react: {
+    name: 'React',
+    src: '/assets/images/react-logo.svg',
+  },
+  framerMotion: {
+    name: 'Framer Motion',
+    src: '/assets/images/framer-motion-logo.svg',
+  },
+  nextJs: {
+    name: 'Next.js',
+    src: '/assets/images/next-js-logo.svg',
+  },
+  postgreSQL: {
+    name: 'PostgreSQL',
+    src: '/assets/images/postgresql-logo.svg',
+  },
+  express: {
+    name: 'Express.js',
+    src: '/assets/images/express-js-logo.svg',
+  },
+  sass: {
+    name: 'Sass',
+    src: '/assets/images/sass-logo.svg',
+  },
+  vite: {
+    name: 'Vite',
+    src: '/assets/images/vite-logo.svg',
+  },
+  tailwind: {
+    name: 'Tailwind',
+    src: '/assets/images/tailwind-css-logo.svg',
+  },
+}
+
+const {react, framerMotion, nextJs, postgreSQL, express, sass, vite, tailwind} = technologies
+
 export const projectsArr = [
   {
-    projectName: "portfolio-website",
+    projectName: "placeholder-website",
     name: "Placeholder",
     src: "/assets/images/dawg.jpg",
     bg: "hsl(124 100 22)",
+    technologies: [react, framerMotion, tailwind, vite],
+    githubLink: 'https://www.github.com',
+    demoLink: 'finnreinders.com',
     description:
       "A personal portfolio website showcasing my web development skills, creative projects, and design philosophy. Built with modern technologies, it features interactive animations, responsive layouts, and a curated selection of work, offering visitors an engaging and immersive experience. The site also includes a contact form and links to my social profiles.",
     imageArr: [
@@ -15,19 +55,39 @@ export const projectsArr = [
     ],
   },
   {
-    projectName: "smoothie-website",
-    name: "Placeholder",
-    src: "https://github.com/olivierlarose/zoom-parallax/blob/main/public/images/1.jpeg?raw=true",
+    projectName: "placeholder-2-website",
+    name: "Placeholder 2",
+    src: "/assets/images/dawg.jpg",
     bg: "hsl(124 100 22)",
+    technologies: [react, framerMotion, tailwind, vite],
+    githubLink: 'https://www.github.com',
+    demoLink: 'finnreinders.com',
     description:
-      "A vibrant and visually appealing website for a smoothie shop, designed to attract customers with colorful imagery and dynamic transitions. The site highlights the full menu, nutritional information, and seasonal specials, while offering an interactive ordering system and customer reviews. Built for both desktop and mobile users, it emphasizes user-friendly navigation and a fresh, energetic brand identity.",
+      "A personal portfolio website showcasing my web development skills, creative projects, and design philosophy. Built with modern technologies, it features interactive animations, responsive layouts, and a curated selection of work, offering visitors an engaging and immersive experience. The site also includes a contact form and links to my social profiles.",
+    imageArr: [
+      { src: "/assets/images/photo2.jpg", scale: 1 },
+      { src: "/assets/images/photo3.jpg", scale: 2 },
+      { src: "/assets/images/photo7.jpg", scale: 4 },
+      { src: "/assets/images/photo5.jpg", scale: 1 },
+      { src: "/assets/images/photo6.jpg", scale: 4 },
+    ],
   },
   {
-    projectName: "movie-website",
-    name: "Placeholder",
-    src: "https://github.com/olivierlarose/zoom-parallax/blob/main/public/images/3.jpg?raw=true",
+    projectName: "placeholder-3-website",
+    name: "Placeholder 3",
+    src: "/assets/images/dawg.jpg",
     bg: "hsl(124 100 22)",
+    technologies: [react, framerMotion, tailwind, vite],
+    githubLink: 'https://www.github.com',
+    demoLink: 'finnreinders.com',
     description:
-      "A modern movie database platform that allows users to search for films, read and write reviews, watch trailers, and explore curated lists. The site features advanced filtering, personalized recommendations, and a sleek, cinematic interface. Designed for film enthusiasts, it supports community engagement through ratings and discussions, and is optimized for fast performance and accessibility across devices.",
+      "A personal portfolio website showcasing my web development skills, creative projects, and design philosophy. Built with modern technologies, it features interactive animations, responsive layouts, and a curated selection of work, offering visitors an engaging and immersive experience. The site also includes a contact form and links to my social profiles.",
+    imageArr: [
+      { src: "/assets/images/photo2.jpg", scale: 1 },
+      { src: "/assets/images/photo3.jpg", scale: 2 },
+      { src: "/assets/images/photo7.jpg", scale: 4 },
+      { src: "/assets/images/photo5.jpg", scale: 1 },
+      { src: "/assets/images/photo6.jpg", scale: 4 },
+    ],
   },
 ];

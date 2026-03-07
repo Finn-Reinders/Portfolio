@@ -20,7 +20,7 @@ import Navbar from "./components/Navbar";
 import Loader from "./components/Loader";
 import ScrollIndicator from "./components/ScrollIndicator";
 
-const lenis = new Lenis();
+export const lenis = new Lenis();
 
 function raf(time) {
   lenis.raf(time);
@@ -64,7 +64,7 @@ function Index() {
     const location = useLocation();
 
     return (
-      <AnimatePresence mode="wait" onExitComplete={() => lenis.scrollTo(0, { immediate: true })}>
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

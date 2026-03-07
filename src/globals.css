@@ -51,37 +51,37 @@ body {
         inset: 0;
     }
 
-    .blur-filter:first-child {
+    .blur-filter:nth-of-type(1) {
         backdrop-filter: blur(1px);
         mask: linear-gradient(transparent, #000 10%, #000 30%, transparent 40%);
     }
 
-    .blur-filter::nth-of-type(2) {
+    .blur-filter:nth-of-type(2) {
         backdrop-filter: blur(2px);
         mask: linear-gradient(transparent 10%, #000 20%, #000 40%, transparent 50%);
     }
 
-    .blur-filter::nth-of-type(3) {
+    .blur-filter:nth-of-type(3) {
         backdrop-filter: blur(4px);
         mask: linear-gradient(transparent 15%, #000 30%, #000 50%, transparent 60%);
     }
 
-    .blur-filter::nth-of-type(4) {
+    .blur-filter:nth-of-type(4) {
         backdrop-filter: blur(8px);
         mask: linear-gradient(transparent 20%, #000 40%, #000 60%, transparent 70%);
     }
 
-    .blur-filter::nth-of-type(5) {
+    .blur-filter:nth-of-type(5) {
         backdrop-filter: blur(12px);
         mask: linear-gradient(transparent 40%, #000 60%, #000 80%, transparent 90%);
     }
 
-    .blur-filter::nth-of-type(6) {
+    .blur-filter:nth-of-type(6) {
         backdrop-filter: blur(16px);
         mask: linear-gradient(transparent 60%, #000 80%);
     }
 
-    .blur-filter::nth-of-type(7) {
+    .blur-filter:nth-of-type(7) {
         backdrop-filter: blur(16px);
         mask: linear-gradient(transparent 70%, #000);
     }
@@ -119,15 +119,20 @@ body {
     color: white;
 }
 
-.project-title {
-    transform-style: preserve-3d;
-    perspective: 100px;
-    perspective-origin: center;
-}
-
 .preserve {
     transform-style: preserve-3d;
+}
+
+.perspective-sm {
     perspective: 100px;
+}
+
+.perspective-md {
+    perspective: 500px;
+}
+
+.perspective-lg {
+    perspective: 1000px;
 }
 
 
