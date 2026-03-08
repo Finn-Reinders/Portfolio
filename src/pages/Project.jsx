@@ -41,7 +41,7 @@ export default function Project() {
       y: 0,
       z: z,
       rotateZ: rotation,
-      transition: { duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.7 + delay },
+      transition: { duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.7 + delay },
     }),
     exit: {
       clipPath: "inset(50% round 12px)",
@@ -53,12 +53,12 @@ export default function Project() {
   const clipPathAnim = {
     initial: {
       clipPath: "inset(50%)",
-      filter: 'blur(12px)',
+      filter: "blur(12px)",
       transition: { ease: [0.76, 0, 0.24, 1] },
     },
     enter: (custom) => ({
       clipPath: "inset(0%)",
-      filter: 'blur(0px)',
+      filter: "blur(0px)",
       transition: { delay: custom, duration: 1, ease: [0.76, 0, 0.24, 1] },
     }),
   };
@@ -83,7 +83,7 @@ export default function Project() {
       x: 0,
       y: 0,
       rotateX: 0,
-      transition: { delay: .5, duration: 1, ease: [0.76, 0, 0.24, 1] },
+      transition: { delay: 0.5, duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
     exit: { opacity: 0 },
   };
@@ -94,7 +94,7 @@ export default function Project() {
       x: 0,
       y: 0,
       rotateX: 0,
-      transition: { delay: .5, duration: 1, ease: [0.76, 0, 0.24, 1] },
+      transition: { delay: 0.5, duration: 1, ease: [0.76, 0, 0.24, 1] },
     },
     exit: { opacity: 0 },
   };
@@ -106,8 +106,8 @@ export default function Project() {
         {/* Title */}
         <motion.div
           {...anim(title)}
-          transition={{ duration: 1, delay: .2, ease: [0.76, 0, 0.24, 1] }}
-          className="preserve perspective-sm absolute right-4 top-4 flex z-10 bg-black w-fit h-fit p-4"
+          transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
+          className="preserve z-10 perspective-sm absolute right-4 top-4 flex bg-black w-fit h-fit p-4"
         >
           <motion.h1
             {...anim(nameEnterLeft)}
@@ -128,106 +128,110 @@ export default function Project() {
             Website
           </motion.h1>
         </motion.div>
-        <div className="flex items-center justify-center flex-col w-screen h-full preserve perspective-lg">
-          <motion.div
-            {...anim(itemPopUp)}
-            custom={{ delay: 0, rotation: 1 }}
-            className="bg-[#C0C0C0] rounded-xl px-5 py-2.5 rotate-1 h-fit w-[35rem]"
-          >
-            <h1 className="font-['Instrument'] text-3xl">Description</h1>
-            <SplitText
-              tag="p"
-              paddingBottom="3px"
-              className="leading-[1.1]"
-              type="word"
-              animationDelay={1.35}
-              text={description}
-            />
-          </motion.div>
-          <div className="flex justify-between w-[65%] flex-row preserve perspective-lg">
-            <div className="relative w-fit h-fit preserve perspective-lg">
-              <motion.div
-                {...anim(itemPopUp)}
-                custom={{ delay: 0.2, rotation: -2, z: 10 }}
-                className="-rotate-2 px-5 py-2.5 rounded-xl bg-[#969696] h-fit w-80"
-              >
-                <h1 className="font-['Instrument'] text-3xl">Technologies</h1>
-                <ul>
-                  {technologies.map((technology, i) => {
-                    return (
-                      <li className="flex h-5" key={`technology_${i}`}>
-                        <SplitText
-                          type="char"
-                          text={technology.name}
-                          textsize="1rem"
-                          animationDelay={1.55}
-                          className="leading-[1.1]"
-                        ></SplitText>
-                        <motion.span
-                          {...anim(clipPathAnim)}
-                          custom={2.3}
-                          className="ml-1"
-                        >
-                          <img
-                            className="h-full w-full object-cover"
-                            src={technology.src}
-                          />
-                        </motion.span>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </motion.div>
-              <motion.div
-                {...anim(itemPopUp)}
-                custom={{ delay: 0.4, rotation: 4, z: 20 }}
-                className="absolute rotate-[4deg] -bottom-16 -right-6 px-5 py-2.5 w-32 rounded-xl bg-[#C0C0C0] flex flex-col"
-              >
-                <h1 className="font-['Instrument'] text-3xl">Links</h1>
-                <ul className="w-full flex flex-row justify-between h-10">
-                  <a href={githubLink} target="_blank">
-                    <motion.li
-                      {...anim(clipPathAnim)}
-                      className="aspect-square h-full"
-                    >
-                      <img
-                        src="/assets/images/github-logo.svg"
-                        className="object-cover w-full h-full"
-                        alt=""
-                      />
-                    </motion.li>
-                  </a>
-                  <li className="bg-black aspect-square h-full"></li>
-                </ul>
-              </motion.div>
-            </div>
+        <div className="flex items-center justify-center pb-72 z-0 relative flex-col w-screen h-full preserve perspective-md">
+          <div className="w-fit h-fit relative preserve perspective-lg">
+            {/* Description Container */}
             <motion.div
               {...anim(itemPopUp)}
-              custom={{ delay: 0.6, rotation: 3, z: 10 }}
-              className="bg-[#757575] rounded-xl text-white p-2.5 w-[30rem] h-[24rem] rotate-3"
+              custom={{ delay: 0, rotation: 1 }}
+              className="bg-[#C0C0C0] rounded-xl px-5 py-2.5 top-[50%] left-[50%] rotate-1 h-fit w-[35rem]"
             >
-              <div className="h-full w-full">
-                <img
-                  className="object-cover w-full h-full rounded-md"
-                  src="/assets/images/photo6.jpg"
-                />
-              </div>
+              <h1 className="font-['Instrument'] text-3xl">Description</h1>
+              <SplitText
+                tag="p"
+                paddingBottom="3px"
+                className="leading-[1.1]"
+                type="word"
+                animationDelay={1.35}
+                text={description}
+              />
             </motion.div>
+              <div className="absolute -left-72 w-fit h-fit preserve perspective-md">
+                {/* Technologies Container */}
+                <motion.div
+                  {...anim(itemPopUp)}
+                  custom={{ delay: 0.2, rotation: -2, z: 10 }}
+                  className="-rotate-2 px-5 -mt-2 py-2.5 rounded-xl bg-[#969696] h-fit w-80"
+                >
+                  <h1 className="font-['Instrument'] text-3xl">Technologies</h1>
+                  <ul>
+                    {technologies.map((technology, i) => {
+                      return (
+                        <li className="flex h-5" key={`technology_${i}`}>
+                          <motion.span {...anim(clipPathAnim)} custom={1.3}>
+                            <img
+                              className="h-full w-full object-cover"
+                              src={technology.src}
+                            />
+                          </motion.span>
+                          <motion.span initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 1.5}} className="ml-1 mr-1.5 flex items-center">
+                            ·
+                          </motion.span>
+                          <SplitText
+                            type="char"
+                            text={technology.name}
+                            textsize="1rem"
+                            animationDelay={1.55}
+                            className="leading-[1.3] my-auto"
+                          ></SplitText>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </motion.div>
+                {/* Links Container */}
+                <motion.div
+                  {...anim(itemPopUp)}
+                  custom={{ delay: 0.4, rotation: 4, z: 20 }}
+                  className="absolute -right-24 rotate-[4deg] px-5 py-2.5 -mt-8 w-32 rounded-xl bg-[#C0C0C0] flex flex-col"
+                >
+                  <h1 className="font-['Instrument'] text-3xl">Links</h1>
+                  <ul className="w-full flex flex-row justify-between h-10">
+                    <a href={githubLink} target="_blank">
+                      <motion.li
+                        {...anim(clipPathAnim)}
+                        className="aspect-square h-full"
+                      >
+                        <img
+                          src="/assets/images/github-logo.svg"
+                          className="object-cover w-full h-full"
+                          alt=""
+                        />
+                      </motion.li>
+                    </a>
+                    <li className="bg-black aspect-square h-full"></li>
+                  </ul>
+                </motion.div>
+              </div>
+              {/* Images Container */}
+              <motion.div
+                {...anim(itemPopUp)}
+                custom={{ delay: 0.6, rotation: 3, z: 10 }}
+                className="bg-[#757575] rounded-xl absolute -right-80 text-white p-2.5 w-[30rem] h-[24rem] rotate-3"
+              >
+                <div className="h-full w-full">
+                  <img
+                    className="object-cover w-full h-full rounded-md"
+                    src="/assets/images/photo6.jpg"
+                  />
+                </div>
+              </motion.div>
           </div>
         </div>
       </div>
-      {otherProjects.length > 1 && 
-      <>
-      <motion.header
-        {...anim(headerAnim)}
-        className="bg-black h-fit py-4 w-screen"
-      >
-      <h1 className="uppercase text-white text-4xl font-['Instrument']">
-          Check out some of my other projects
-        </h1>
-      </motion.header>
-      <Projects projects={otherProjects} /></>
-      }
+      {otherProjects.length > 1 && (
+        <>
+          <motion.header
+            {...anim(headerAnim)}
+            className="bg-black h-fit py-4 w-screen"
+          >
+            <h1 className="uppercase text-white text-4xl font-['Instrument']">
+              Check out some of my other projects
+            </h1>
+          </motion.header>
+          <Projects projects={otherProjects} />
+        </>
+      )}
       <Footer />
     </>
   );

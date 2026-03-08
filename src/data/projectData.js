@@ -11,7 +11,7 @@ const technologies = {
     name: 'Next.js',
     src: '/assets/images/next-js-logo.svg',
   },
-  postgreSQL: {
+  postgreSql: {
     name: 'PostgreSQL',
     src: '/assets/images/postgresql-logo.svg',
   },
@@ -31,17 +31,29 @@ const technologies = {
     name: 'Tailwind',
     src: '/assets/images/tailwind-css-logo.svg',
   },
+  threejs: {
+    name: 'Three.js',
+    src: '/assets/images/three-js-logo.svg',
+  },
+  reactPageRouter: {
+    name: 'React Router DOM',
+    src: '/assets/images/react-router-dom-logo.svg',
+  },
+  lenis: {
+    name: 'Lenis',
+    src: '/assets/images/lenis-logo.svg',
+  },
 }
 
-const {react, framerMotion, nextJs, postgreSQL, express, sass, vite, tailwind} = technologies
+const {react, framerMotion, nextJs, postgreSql, express, lenis, sass, vite, tailwind, reactPageRouter, threejs} = technologies
 
 export const projectsArr = [
   {
-    projectName: "placeholder-website",
-    name: "Placeholder",
+    projectName: "portfolio",
+    name: "Portfolio",
     src: "/assets/images/dawg.jpg",
     bg: "hsl(124 100 22)",
-    technologies: [react, framerMotion, tailwind, vite],
+    technologies: [react, framerMotion, tailwind, vite, reactPageRouter, threejs, lenis],
     githubLink: 'https://www.github.com',
     demoLink: 'finnreinders.com',
     description:
