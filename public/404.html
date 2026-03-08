@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finn Reinders - Portfolio</title>
+    <meta name="description" content="Hi, I'm Finn Reinders, a front-end motion developer specializing in creating immersive web experiences." />
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <script>
+      // Redirect all 404s to index.html for React Router
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    <script defer type="module" src="/src/index.jsx"></script>
+  </head>
+  <body class='overflow-x-hidden'>
+    <div id="root"></div>
+    <script>
+      // If not on the root, save the path and reload index.html
+      if (location.pathname !== '/' && !location.pathname.startsWith('/assets')) {
+        sessionStorage.redirect = location.pathname + location.search + location.hash;
+        location.replace('/');
+      }
+    </script>
+  </body>
+</html>
