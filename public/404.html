@@ -21,9 +21,12 @@
   <body class='overflow-x-hidden'>
     <div id="root"></div>
     <script>
-      // If not on the root, save the path and reload index.html
-      if (location.pathname !== '/' && !location.pathname.startsWith('/assets')) {
-        sessionStorage.redirect = location.pathname + location.search + location.hash;
+      // If not on the root, save the full path and reload index.html
+      var isAsset = location.pathname.startsWith('/assets');
+      var isRoot = location.pathname === '/';
+      if (!isRoot && !isAsset) {
+        var fullPath = location.pathname + location.search + location.hash;
+        sessionStorage.redirect = fullPath;
         location.replace('/');
       }
     </script>
