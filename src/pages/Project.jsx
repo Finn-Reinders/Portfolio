@@ -128,7 +128,7 @@ export default function Project() {
             Website
           </motion.h1>
         </motion.div>
-        <div className="flex items-center justify-center pb-72 z-0 relative flex-col w-screen h-full preserve perspective-md">
+        <div className="flex items-center justify-center pb-96 z-0 relative flex-col w-screen h-full preserve perspective-md">
           <div className="w-fit h-fit relative preserve perspective-lg">
             {/* Description Container */}
             <motion.div
@@ -146,12 +146,12 @@ export default function Project() {
                 text={description}
               />
             </motion.div>
-              <div className="absolute -left-72 w-fit h-fit preserve perspective-md">
+              <div className="absolute -left-64 w-fit h-fit preserve perspective-md">
                 {/* Technologies Container */}
                 <motion.div
                   {...anim(itemPopUp)}
                   custom={{ delay: 0.2, rotation: -2, z: 10 }}
-                  className="-rotate-2 px-5 -mt-2 py-2.5 rounded-xl bg-[#969696] h-fit w-80"
+                  className="-rotate-2 px-5 -mt-1 py-2.5 rounded-xl bg-[#969696] h-fit w-80"
                 >
                   <h1 className="font-['Instrument'] text-3xl">Technologies</h1>
                   <ul>
