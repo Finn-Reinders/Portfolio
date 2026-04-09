@@ -85,7 +85,7 @@ function ProjectCard({ proj, i }) {
               animationDelay={enterDuration + 0.3}
               tag="h1"
               type="char"
-              text="Website"
+              text={proj.name2}
               className="text-white w-fit px-2 font-['Instrument'] h-[5rem] leading-[1]"
               textSize={"5rem"}
             />

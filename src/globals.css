@@ -120,7 +120,7 @@ body {
 }
 
 .preserve {
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
 }
 
 .perspective-sm {
@@ -179,4 +179,12 @@ body {
 
 .scroll-indicator {
     background: radial-gradient(circle, rgb(255 255 255 / 0.3) 0%, transparent 100%);
+}
+
+.technology-list {
+    mask: linear-gradient(to right, #000 90%, #00000000 100%);
+}
+
+.perspective-right {
+    perspective-origin: right;
 }

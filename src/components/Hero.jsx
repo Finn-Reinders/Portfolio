@@ -35,7 +35,7 @@ export default function Hero() {
   };
 
   return (
-    <div ref={sectionParent} className="h-[calc(100vh-57px)] z-2 relative">
+    <div className="h-[calc(100vh-57px)] z-2 relative" ref={sectionParent}>
       <section className="top-0 justify-center h-full px-3 pb-3">
         <motion.div
           {...anim(heroAnim)}
@@ -63,7 +63,7 @@ export default function Hero() {
               />
               <SplitText
                 {...anim(splitAnim)}
-                text="Front-End Dev"
+                text="Creative Developer"
                 textSize="5rem"
                 className="whitespace-nowrap absolute leading-[1] rounded-[1rem] backdrop-blur-sm text-white tracking-[-.4rem] px-8 font-['Instrument'] top-[calc(50%+3rem)] translate-y-[-50%]"
                 animationDelay={0.7}

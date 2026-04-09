@@ -24,9 +24,8 @@ export default function Navbar() {
   };
 
   const navVariants = {
-    initial: { y: -57 },
-    enter: { y: 0 },
-    exit: { y: -57 },
+    initial: { y: 57 },
+    enter: { y: 0, transition: {duration: 1}},
   };
 
   return (
@@ -42,7 +41,11 @@ export default function Navbar() {
         className="flex z-20 w-screen fixed mt-[-57px] h-[57px]"
       >
         <div className="px-20 content z-10 relative flex items-center justify-between h-full w-full">
-          <h2 className="text-black font-extrabold text-xl"></h2>
+          <div className="">
+            <Link to={"/"}>
+              <span className="uppercase">Logo</span>
+            </Link>
+          </div>
           <div className="gap-3 flex text-sm flex-row text-gray-700 font-[550] font-['Chillax']">
             <div className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300">
               <Link to={"/"}>

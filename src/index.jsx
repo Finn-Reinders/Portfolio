@@ -64,13 +64,13 @@ function Index() {
     const location = useLocation();
 
     return (
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects/:projectName" element={<Project />} />
-        </Routes>
-      </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects/:projectName" element={<Project />} />
+          </Routes>
+        </AnimatePresence>
     );
   }
 
