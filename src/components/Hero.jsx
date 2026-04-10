@@ -65,7 +65,7 @@ export default function Hero() {
                 {...anim(splitAnim)}
                 text="Creative Developer"
                 textSize="5rem"
-                className="whitespace-nowrap absolute leading-[1] rounded-[1rem] backdrop-blur-sm text-white tracking-[-.4rem] px-8 font-['Instrument'] top-[calc(50%+3rem)] translate-y-[-50%]"
+                className="whitespace-nowrap absolute leading-[1] rounded-[1rem] ml-10 backdrop-blur-sm text-white tracking-[-.4rem] px-8 font-['Instrument'] top-[calc(50%+1.5rem)] translate-y-[-50%]"
                 animationDelay={0.7}
                 type="char"
               />

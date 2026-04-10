@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "../globals.css";
-import { langHover, resetCursor } from "./Cursor";
 
 export const SplitText = ({
   hover,
@@ -42,7 +41,6 @@ export const SplitText = ({
   const rootProps = { ...motionProps };
   if (!rootProps.transition) rootProps.transition = { duration: 2 };
   rootProps.onMouseEnter = hover;
-  rootProps.onMouseLeave = resetCursor;
   rootProps.style = { fontSize: textSize, ...style, ...(rootProps.style || {}) };
   rootProps.className = `overflow-hidden ${className}`.trim();
 

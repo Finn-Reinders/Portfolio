@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SplitText } from "./SplitText";
-import { langHover } from "./Cursor";
 import { Link } from "react-router-dom";
+import ContactForm from "./ContactForm";
 
 export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
@@ -25,8 +25,10 @@ export default function Navbar() {
 
   const navVariants = {
     initial: { y: 57 },
-    enter: { y: 0, transition: {duration: 1}},
+    enter: { y: 0, transition: { duration: 1 } },
   };
+
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <AnimatePresence>
@@ -47,26 +49,29 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="gap-3 flex text-sm flex-row text-gray-700 font-[550] font-['Chillax']">
-            <div className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300">
+            <div className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] hover:bg-black backdrop-blur-[16px] bg-opacity-10 rounded-lg transition duration-300">
               <Link to={"/"}>
                 <span className="uppercase">projects</span>
               </Link>
             </div>
-            <Link
-              to="/contact"
-              className="w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-md hover:bg-neutral-100 transition duration-300"
+            <div
+              onClick={() => {
+                setContactOpen(!contactOpen);
+              }}
+              className={`w-fit h-[33px] flex px-5 py-2.5 items-center backdrop-blur-[16px] bg-opacity-10 rounded-md transition duration-300 hover:bg-black ${
+                contactOpen ? "bg-red-600" : "bg-[#e6e6e680]"
+              }`}
             >
-              <span>
-                <svg width="12px" height="12px">
-                  <path
-                    fill="rgb(55 65 81)"
-                    d="M2.413 5.194a10.099 10.099 0 0 0 4.394 4.393L8.273 8.12c.18-.18.447-.24.68-.16.747.247 1.554.38 2.38.38.367 0 .667.3.667.667v2.327c0 .367-.3.667-.667.667C5.073 12 0 6.927 0 .667 0 .3.3 0 .667 0H3c.367 0 .667.3.667.667 0 .833.133 1.633.38 2.38a.669.669 0 0 1-.167.68L2.413 5.194Z"
-                  ></path>
-                </svg>
-              </span>
-            </Link>
+              <svg width="12px" height="12px">
+                <path
+                  fill="rgb(55 65 81)"
+                  d="M2.413 5.194a10.099 10.099 0 0 0 4.394 4.393L8.273 8.12c.18-.18.447-.24.68-.16.747.247 1.554.38 2.38.38.367 0 .667.3.667.667v2.327c0 .367-.3.667-.667.667C5.073 12 0 6.927 0 .667 0 .3.3 0 .667 0H3c.367 0 .667.3.667.667 0 .833.133 1.633.38 2.38a.669.669 0 0 1-.167.68L2.413 5.194Z"
+                ></path>
+              </svg>
+            {contactOpen && <ContactForm />}
+            </div>
             <div className="relative">
-              <button
+              {/* <button
                 onClick={handleToggle}
                 className="cursor-none font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300"
               >
@@ -109,7 +114,7 @@ export default function Navbar() {
                     </ul>
                   </motion.div>
                 )}
-              </AnimatePresence>
+              </AnimatePresence> */}
             </div>
           </div>
         </div>

@@ -1,11 +1,8 @@
 import { createRoot } from "react-dom/client";
 import "./globals.css";
-import Cursor from "./components/Cursor";
 import Lenis from "@studio-freight/lenis";
-import MobileMessage from "./components/Mobile";
 import { useState, useEffect } from "react";
-import WIP from "./components/Wip";
-import App from "./components/App";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -93,7 +90,7 @@ function Index() {
           </Router>
         )}
       </motion.div>
-      <Cursor />
+      {/* <Cursor /> */}
     </>
   );
 }

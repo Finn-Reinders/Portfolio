@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <title>Finn Reinders - Portfolio</title>
     <meta
       name="description"
@@ -19,7 +19,21 @@
         }
       })();
     </script>
-    <script defer type="module" src="/src/index.jsx"></script>
+    <script type="module" src="/src/index.jsx"></script>
+    <script>
+      // Disable zoom
+      document.addEventListener('wheel', function(event) {
+        if (event.ctrlKey) {
+          event.preventDefault();
+        }
+      }, { passive: false });
+
+      document.addEventListener('keydown', function(event) {
+        if ((event.ctrlKey || event.metaKey) && (event.key === '+' || event.key === '-' || event.key === '=')) {
+          event.preventDefault();
+        }
+      });
+    </script>
   </head>
   <body class="overflow-x-hidden">
     <div id="root"></div>

@@ -79,22 +79,12 @@ export const projectsArr = [
     projectName: "avenoir",
     name: "Avenoir",
     name2: "Clothing",
-    src: "/assets/images/dawg.jpg",
+    src: "/assets/images/avenoir-explore.png",
     imageArr: [
       {
-        src: "/assets/videos/file_example_MP4_480_1_5MG.gif",
-        title: "1",
-        technologies: [reactPageRouter, framerMotion, nextJs],
-      },
-      {
-        src: "/assets/images/dawg.jpg",
-        title: "wut da dawg doin",
-        technologies: [react, framerMotion, nextJs],
-      },
-      {
-        src: "/assets/images/photo6.jpg",
-        title: "6",
-        technologies: [postgreSql, framerMotion, nextJs],
+        src: "/assets/images/avenoir-explore.png",
+        title: "Explore Page",
+        technologies: [framerMotion, nextJs],
       },
     ],
     bg: "hsl(124 100 22)",

@@ -77,7 +77,7 @@ function ProjectCard({ proj, i }) {
               className="h-[5.5rem] origin-center flex items-center overflow-hidden"
             >
               <motion.img
-                className="h-full aspect-video overflow-hidden grayscale w-full object-cover"
+                className="h-full aspect-video overflow-hidden w-full object-cover"
                 src={proj.src}
               />
             </motion.div>

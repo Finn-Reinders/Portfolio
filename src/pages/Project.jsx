@@ -186,7 +186,7 @@ export default function Project() {
         <motion.div
           {...anim(title)}
           transition={{ duration: 1, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-          className="preserve z-10 perspective-sm absolute right-4 top-4 flex bg-black w-fit h-fit p-4"
+          className="z-10 perspective-sm absolute right-4 top-4 flex bg-black w-fit h-fit p-4"
         >
           <motion.h1
             {...anim(nameEnterLeft)}
@@ -207,8 +207,8 @@ export default function Project() {
             Website
           </motion.h1>
         </motion.div>
-        <div className="flex items-center justify-center pb-96 z-0 relative flex-col w-screen h-full preserve perspective-md">
-          <div className="w-fit h-fit relative preserve perspective-lg">
+        <div className="flex items-center justify-center pb-96 z-0 relative flex-col w-screen h-full perspective-md">
+          <div className="w-fit h-fit relative  perspective-lg">
             {/* Description Container */}
             <motion.div
               {...anim(itemPopUp)}
@@ -225,10 +225,9 @@ export default function Project() {
                 text={description}
               />
             </motion.div>
-            <div className="absolute -left-64 w-fit h-fit preserve perspective-md">
+            <div className="absolute -left-64 w-fit h-fit  perspective-md">
               {/* Technologies Container */}
               <motion.div
-            
                 {...anim(itemPopUp)}
                 custom={{ delay: 0.2, rotation: -2, z: 10 }}
                 className="-rotate-2 px-5 -mt-1 py-2.5 rounded-xl shadow-md bg-[#969696] h-fit w-80"
@@ -284,7 +283,25 @@ export default function Project() {
                       />
                     </motion.li>
                   </a>
-                  <a href={demoLink} target="_blank"  className="bg-black aspect-square h-full"></a>
+                  <a
+                    href={demoLink}
+                    target="_blank"
+                    className="aspect-square h-full"
+                  >
+                    <svg
+                      width="98"
+                      height="98"
+                      className='w-full h-full'
+                      viewBox="0 0 98 98"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M34.8769 67L31 63.1231L57.5846 36.5385H33.7692V31H67V64.2308H61.4615V40.4154L34.8769 67Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </a>
                 </ul>
               </motion.div>
             </div>
@@ -300,7 +317,7 @@ export default function Project() {
                     ? { perspectiveOrigin: "left" }
                     : { perspectiveOrigin: "right" }
                 }
-                className="h-full w-full relative preserve perspective-sm"
+                className="h-full w-full relative  perspective-sm"
               >
                 {imageArr.map((image, i) => {
                   return (
@@ -327,7 +344,10 @@ export default function Project() {
                       <ul className="flex h-6 w-full overflow-hidden whitespace-nowrap technology-list">
                         {imageArr[imgIndex].technologies.map((tech, i) => {
                           return (
-                            <li className="flex h-full w-fit text-sm font-thin" key={`li-tech${tech.name}`}>
+                            <li
+                              className="flex h-full w-fit text-sm font-thin"
+                              key={`li-tech${tech.name}`}
+                            >
                               {tech.name}
                               {i <
                                 imageArr[imgIndex].technologies.length - 1 && (
