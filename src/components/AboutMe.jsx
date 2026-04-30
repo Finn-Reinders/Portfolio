@@ -45,14 +45,14 @@ export default function AboutMe() {
   const [inView, setInView] = useState(false);
 
   return (
-    <div className="flex justify-center items-center gap-4 px-4 my-14 perspective-md relative w-fit h-fit mx-auto">
+    <div className="flex justify-center items-center gap-4 px-4 perspective-md relative w-fit h-fit mx-auto mt-14 mb-32">
       <motion.main
         onViewportEnter={() => setInView(true)}
         initial={"initial"}
         animate={inView && "enter"}
         exit={"exit"}
         variants={aboutMeEnter}
-        className="w-[35vw] h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg"
+        className="w-[40rem]  h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg"
       >
         {inView && (
           <>

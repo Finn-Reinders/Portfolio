@@ -63,7 +63,7 @@ export const SplitText = ({
           className="relative inline-block w-fit"
         >
           <motion.span
-            className="inline-block relative"
+            className="inline-block relative leading-none"
             initial={{ y: startY, fontWeight: fontWeight1 }}
             animate={
               play

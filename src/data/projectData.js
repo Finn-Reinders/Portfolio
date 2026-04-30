@@ -28,7 +28,7 @@ const technologies = {
     src: "/assets/images/vite-logo.svg",
   },
   tailwind: {
-    name: "Tailwind",
+    name: "TailwindCSS",
     src: "/assets/images/tailwind-css-logo.svg",
   },
   threejs: {
@@ -55,6 +55,10 @@ const technologies = {
     name: "Typescript",
     src: "/assets/images/typescript-logo.svg",
   },
+  gsap: {
+    name: "GSAP",
+    src: "/assets/images/gsap-logo.svg",
+  },
 };
 
 const {
@@ -72,9 +76,67 @@ const {
   threejs,
   vercel,
   typescript,
+  gsap
 } = technologies;
 
 export const projectsArr = [
+  {
+    projectName: "portfolio-v2",
+    name: "Portfolio",
+    name2: "V2",
+    src: "/assets/images/front/natlab.png",
+    imageArr: [
+      {
+        src: "/assets/videos/other-projects.gif",
+        title: "Opening Animation",
+        technologies: [gsap, framerMotion],
+      },
+    ],
+    bg: "hsl(124 100 22)",
+    technologies: [nextJs, gsap, framerMotion, tailwind],
+    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
+    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
+    description:
+      "So I decided to make a new portfolio because I am not satisfied with this one. This time I am focussing on working on a website from a design and branding which I previously didn't really do. Sadly I started a little late on this portfolio so i can't apply for interships with it so I am just going to apply with this portfolio.",
+  },
+  {
+    projectName: "natlab-website",
+    name: "NatLab",
+    name2: "Website",
+    src: "/assets/images/front/natlab.png",
+    imageArr: [
+      {
+        src: "/assets/videos/natlab-opening.gif",
+        title: "Opening Animation",
+        technologies: [gsap, framerMotion],
+      },
+    ],
+    bg: "hsl(124 100 22)",
+    technologies: [nextJs, gsap, framerMotion, tailwind],
+    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
+    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
+    description:
+      "This is a project i got in the 8th phase on the SintLucas. The client for this project was NatLab.",
+  },
+  {
+    projectName: "opening-animation",
+    name: "Opening",
+    name2: "Animation",
+    src: "/assets/images/avenoir-explore.png",
+    imageArr: [
+      {
+        src: "/assets/images/avenoir-explore.png",
+        title: "Explore Page",
+        technologies: [gsap, react],
+      },
+    ],
+    bg: "hsl(124 100 22)",
+    technologies: [gsap, react, vite],
+    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
+    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
+    description:
+      "Recreated the opening animation from Ravi Klaassen's portfolio that I found on Awwwards. My first time using GSAP, and it was the perfect fit – the timeline feature lets you chain animations together smoothly, which is exactly what you need for a slick page opener.",
+  },
   {
     projectName: "avenoir",
     name: "Avenoir",

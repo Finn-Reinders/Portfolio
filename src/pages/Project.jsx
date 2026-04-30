@@ -22,6 +22,7 @@ export default function Project() {
   const project = projectsArr.find((p) => p.projectName === projectName);
   const {
     name,
+    name2,
     src,
     description,
     technologies,
@@ -204,7 +205,7 @@ export default function Project() {
             {...anim(nameEnterRight)}
             className="text-white font-['Instrument'] text-6xl flex items-center"
           >
-            Website
+            {name2}
           </motion.h1>
         </motion.div>
         <div className="flex items-center justify-center pb-96 z-0 relative flex-col w-screen h-full perspective-md">
@@ -236,10 +237,10 @@ export default function Project() {
                 <ul>
                   {technologies.map((technology, i) => {
                     return (
-                      <li className="flex h-5" key={`technology_${i}`}>
-                        <motion.span {...anim(clipPathAnim)} custom={1.3}>
+                      <li className="flex flex-row h-5" key={`technology_${i}`}>
+                        <motion.span className='w-5' {...anim(clipPathAnim)} custom={1.3}>
                           <img
-                            className="h-full w-full object-cover"
+                            className="h-full object-contain"
                             src={technology.src}
                           />
                         </motion.span>
@@ -309,7 +310,7 @@ export default function Project() {
             <motion.div
               {...anim(itemPopUp)}
               custom={{ delay: 0.6, rotation: 3, z: 10 }}
-              className="bg-[#757575] rounded-xl absolute -right-80 text-white shadow-md p-2.5 w-[30rem] h-[28rem] rotate-3"
+              className="bg-[#757575] rounded-xl absolute -right-80 text-white shadow-md p-2.5 w-[38rem] aspect-video rotate-3"
             >
               <div
                 style={
@@ -433,7 +434,7 @@ export default function Project() {
             {...anim(headerAnim)}
             className="bg-black h-fit py-4 w-screen"
           >
-            <h1 className="uppercase text-white text-4xl font-['Instrument']">
+            <h1 className="ml-4 uppercase text-white text-4xl font-['Instrument']">
               Check out some of my other projects
             </h1>
           </motion.header>
