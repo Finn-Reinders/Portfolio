@@ -98,7 +98,7 @@ function ProjectCard({ proj, i }) {
                     transition={{ duration: 0.5 }}
                     onHoverStart={() => setLinkHovered(true)}
                     onHoverEnd={() => setLinkHovered(false)}
-                    className="absolute right-0 top-[50%] p-1 translate-y-[-50%] rounded-full border-white border-2 h-[6rem] aspect-square flex justify-center items-center"
+                    className="absolute right-0 top-[50%] p-1 translate-y-[-50%] rounded-full border-white border-2 h-[6rem] w-[6rem] aspect-square flex justify-center items-center"
                   >
                     <motion.div
                       animate={
