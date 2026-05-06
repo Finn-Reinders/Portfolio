@@ -310,7 +310,7 @@ export default function Project() {
             <motion.div
               {...anim(itemPopUp)}
               custom={{ delay: 0.6, rotation: 3, z: 10 }}
-              className="bg-[#757575] rounded-xl absolute -right-80 text-white shadow-md p-2.5 w-[38rem] aspect-video rotate-3"
+              className="bg-[#757575] rounded-xl absolute -right-80 text-white shadow-md p-2.5 w-[38rem] h-96 rotate-3"
             >
               <div
                 style={

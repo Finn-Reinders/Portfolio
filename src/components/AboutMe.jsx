@@ -45,14 +45,14 @@ export default function AboutMe() {
   const [inView, setInView] = useState(false);
 
   return (
-    <div className="flex justify-center items-center gap-4 px-4 perspective-md relative w-fit h-fit mx-auto mt-14 mb-32">
+    <div className="flex justify-center items-center gap-4 px-4 perspective-md relative w-fit h-fit mx-auto mt-14 mb-72 pl-28">
       <motion.main
         onViewportEnter={() => setInView(true)}
         initial={"initial"}
         animate={inView && "enter"}
         exit={"exit"}
         variants={aboutMeEnter}
-        className="w-[40rem]  h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg"
+        className="w-[40rem]  h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg shadow-lg"
       >
         {inView && (
           <>
@@ -65,7 +65,7 @@ export default function AboutMe() {
               className="font-['Instrument'] leading-[1.2] rounded-md"
               />
             <SplitText
-              text="Hey, I'm Finn! I'm 18 and studying front-end web development at SintLucas—currently in my second year. I'm passionate about building creative, interactive websites with React and Framer Motion. For the past month i've been learning Next.js and TypeScript to level up my skills. Feel free to check out my projects to see what I've been working on!"
+              text="Hey, I'm Finn, a Front-End Developer with a thing for clean, creative animation. What drew me to front-end development and what keeps me hooked is the way motion can bring a UI to life. What I'm working towards is developing a sharper eye for design and learning to use animation with real purpose."
               textSize={"1.25rem"}
               className=" leading-[1.15] "
               type="word"
@@ -81,7 +81,7 @@ export default function AboutMe() {
         custom={0.4}
         animate={inView && "enter"}
         exit={"exit"}
-        className="h-fit w-40 p-2 bg-[#969696] rounded-lg absolute -right-24 -bottom-20"
+        className="h-fit w-40 p-2 bg-[#969696] rounded-lg absolute -right-24 -bottom-20 shadow-lg"
       >
         <SplitText
           text="Links"
@@ -91,17 +91,27 @@ export default function AboutMe() {
           tag="h2"
           className="font-['Instrument'] leading-none"
         />
-        <ul>
+        <ul className='flex h-14'>
           {footerData.socials.map((link, i) => {
             return (
               <li className="" key={`link-${i}`}>
-                <a target="_blank" href={link.link}>
-                  {link.name}
+                <a className='' target="_blank" href={link.link}>
+                  <img className='h-full w-full object-fit' src={link.img.src} alt={link.img.alt} />
                 </a>
               </li>
             );
           })}
         </ul>
+      </motion.div>)}
+      {inView && (<motion.div
+        variants={aboutMeEnter}
+        initial={"initial"}
+        custom={0.4}
+        animate={inView && "enter"}
+        exit={"exit"}
+        className="h-80 w-80 bg-[#969696] rounded-lg absolute -left-[12.5rem] -bottom-60 p-2 shadow-lg"
+      >
+        <img src="/assets/images/portrait.jpg" className='w-full h-full object-cover rounded-md' alt="" />
       </motion.div>)}
     </div>
   );

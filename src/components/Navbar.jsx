@@ -3,7 +3,6 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SplitText } from "./SplitText";
 import { Link } from "react-router-dom";
-import ContactForm from "./ContactForm";
 
 export default function Navbar() {
   const [langOpen, setLangOpen] = useState(false);
@@ -43,79 +42,14 @@ export default function Navbar() {
         className="flex z-20 w-screen fixed mt-[-57px] h-[57px]"
       >
         <div className="px-20 content z-10 relative flex items-center justify-between h-full w-full">
-          <div className="">
+          <div className="bg-[hsl(0,0%,84%)] hover:bg-[hsl(0,0%,64%)] transition-all w-fit h-fit px-2 py-1 rounded-lg">
             <Link to={"/"}>
-              <span className="uppercase">Logo</span>
+              {/* <img src="/assets/svgs/home.svg" alt="" /> */}
+              <p className="font-['Instrument'] text-xl">Take me home</p>
             </Link>
           </div>
           <div className="gap-3 flex text-sm flex-row text-gray-700 font-[550] font-['Chillax']">
-            <div className="font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] hover:bg-black backdrop-blur-[16px] bg-opacity-10 rounded-lg transition duration-300">
-              <Link to={"/"}>
-                <span className="uppercase">projects</span>
-              </Link>
-            </div>
-            <div
-              onClick={() => {
-                setContactOpen(!contactOpen);
-              }}
-              className={`w-fit h-[33px] flex px-5 py-2.5 items-center backdrop-blur-[16px] bg-opacity-10 rounded-md transition duration-300 hover:bg-black ${
-                contactOpen ? "bg-red-600" : "bg-[#e6e6e680]"
-              }`}
-            >
-              <svg width="12px" height="12px">
-                <path
-                  fill="rgb(55 65 81)"
-                  d="M2.413 5.194a10.099 10.099 0 0 0 4.394 4.393L8.273 8.12c.18-.18.447-.24.68-.16.747.247 1.554.38 2.38.38.367 0 .667.3.667.667v2.327c0 .367-.3.667-.667.667C5.073 12 0 6.927 0 .667 0 .3.3 0 .667 0H3c.367 0 .667.3.667.667 0 .833.133 1.633.38 2.38a.669.669 0 0 1-.167.68L2.413 5.194Z"
-                ></path>
-              </svg>
-            {contactOpen && <ContactForm />}
-            </div>
-            <div className="relative">
-              {/* <button
-                onClick={handleToggle}
-                className="cursor-none font w-fit h-[33px] flex px-5 py-2.5 items-center bg-[#e6e6e680] backdrop-blur-[16px] bg-opacity-10 rounded-lg hover:bg-neutral-100 transition duration-300"
-              >
-                <span className="uppercase">en</span>
-              </button>
-              <AnimatePresence>
-                {langOpen && (
-                  <motion.div
-                    key="lang-dropdown"
-                    initial="closed"
-                    animate="open"
-                    exit="closed"
-                    variants={langVariants}
-                    className="justify-center items-center rounded-xl absolute w-32 h-28 flex bg-[rgba(1,1,1,.4)] backdrop-blur-md top-[calc(100%+0.5rem)] right-0 z-50"
-                    style={{ isolation: "isolate" }}
-                    transition={{ duration: 0.55, ease: "easeInOut" }}
-                  >
-                    <ul className="text-white w-full h-full flex flex-col justify-center gap-1 px-4 font-sans text-lg language">
-                      <SplitText
-                        className="leading-[1] font-['Chillax']"
-                        paddingBottom="4px"
-                        textSize="1rem"
-                        text="English"
-                        hover={langHover}
-                        fontWeight={400}
-                        animationDelay={0.45}
-                        type="word"
-                        tag="li"
-                      />
-                      <SplitText
-                        hover={langHover}
-                        className="leading-[1] font-['Chillax']"
-                        textSize="1rem"
-                        text="Nederlands"
-                        fontWeight={400}
-                        animationDelay={0.45}
-                        type="word"
-                        tag="li"
-                      />
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence> */}
-            </div>
+            <div className="relative"></div>
           </div>
         </div>
         <div className="progressive-blur-container">

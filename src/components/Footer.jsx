@@ -37,45 +37,14 @@ export default function Footer() {
     exit: { x: 0, transition: { duration: 1 } },
   };
   return (
-    <div className="w-fit h-fit overflow-hidden">
+    <footer className="w-fit h-fit overflow-hidden">
       <motion.section
         {...anim(footerLeave)}
         className="p-4 h-80 flex flex-col w-screen bg-black text-white"
       >
-        <h2 className="text-4xl font-['Instrument']">Finn Reinders</h2>
         <div className="flex gap-40">
           <div className="flex gap-16">
-            <div className="flex flex-col border-lime-500 border-2">
-              <h2 className="font-['Instrument'] text-3xl">Menu</h2>
-              <ul>
-                {footerData.menu.map((item, i) => {
-                  return (
-                    <li
-                      onMouseEnter={() => {
-                        setIsHovering(i);
-                      }}
-                      onMouseLeave={() => {
-                        setIsHovering(null);
-                      }}
-                      key={`menu_item_${item.name}`}
-                    >
-                      <Link className="flex" to={item.link}>
-                        <AnimatePresence mode='wait'>
-                          {isHovering === i && <motion.span {...anim(hoverLink)}>·</motion.span>}
-                          <motion.p
-                            animate={isHovering === i ? "enter" : "exit"}
-                            variants={hoverLinkText}
-                            >
-                            {item.name}
-                          </motion.p>
-                            </AnimatePresence>
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            <div className="flex flex-col border-lime-500 border-2">
+            <div className="flex flex-col ">
               <h2 className="font-['Instrument'] text-3xl">Contact</h2>
               <ul>
                 {footerData.contact.map((item, i) => {
@@ -93,7 +62,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex gap-16">
-            <div className="flex flex-col border-lime-500 border-2">
+            <div className="flex flex-col  ">
               <h2 className="font-['Instrument'] text-3xl">Socials</h2>
               <ul>
                 {footerData.socials.map((item, i) => {
@@ -107,12 +76,12 @@ export default function Footer() {
                 })}
               </ul>
             </div>
-            <div className="flex flex-col border-lime-500 border-2">
+            <div className="flex flex-col  ">
               <h2 className="font-['Instrument'] text-3xl">About Me</h2>
-              <p>F</p>
+              <p>Finn Reinders is a creative Front-End web developer.</p>
             </div>
           </div>
-          <div className="flex flex-row w-fit h-fit border-lime-500 border-2">
+          <div className="flex flex-row w-fit h-fit  ">
             <div className='flex flex-col'>
             <h2 className="font-['Instrument'] text-3xl whitespace-nowrap">Latest Project</h2>
               <p>Description</p>
@@ -121,6 +90,6 @@ export default function Footer() {
           </div>
         </div>
       </motion.section>
-    </div>
+    </footer>
   );
 }

@@ -82,8 +82,8 @@ const {
 export const projectsArr = [
   {
     projectName: "portfolio-v2",
-    name: "Portfolio",
-    name2: "V2",
+    name: "New",
+    name2: "Portfolio",
     src: "/assets/images/front/natlab.png",
     imageArr: [
       {

@@ -33,7 +33,6 @@ export default function Home() {
         <h1 className='ml-4 uppercase'>Check out some of my projects</h1>
       </motion.div>
       <Projects />
-      <h1>Some technologies and tools that i use</h1>
       <Footer />
     </>
   );
