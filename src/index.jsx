@@ -30,18 +30,14 @@ function Index() {
   const [pageLoaded, setPageLoaded] = useState(false);
 
   useEffect(() => {
-    // Wait for the entire page to load (images, fonts, etc.)
     const handleLoad = async () => {
-      // Wait for all fonts to be loaded
       await document.fonts.ready;
 
-      // Add a small delay to ensure everything is rendered
       setTimeout(() => {
         setPageLoaded(true);
       }, 100);
     };
 
-    // Check if document is already loaded
     if (document.readyState === "complete") {
       handleLoad();
     } else {
@@ -61,22 +57,22 @@ function Index() {
     const location = useLocation();
 
     return (
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/projects/:projectName" element={<Project />} />
-          </Routes>
-        </AnimatePresence>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/projects/:projectName" element={<Project />} />
+        </Routes>
+      </AnimatePresence>
     );
   }
-
+  if (window.innerWidth < 1000) {
+    return (<div className='w-screen h-screen bg-black'>
+      <p className="text-white">your screen is too small please enter on a desktop/laptop device</p>
+    </div>);
+  }
   return (
     <>
-      <AnimatePresence mode="wait">
-        {!pageLoaded && <Loader key="loader" />}
-      </AnimatePresence>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: pageLoaded ? 1 : 0 }}
