@@ -40,7 +40,7 @@ export default function Footer() {
     <footer className="w-fit h-fit overflow-hidden">
       <motion.section
         {...anim(footerLeave)}
-        className="p-4 h-80 flex flex-col w-screen bg-black text-white"
+        className=" py-4 pl-8 h-80 flex flex-col w-screen bg-black text-white"
       >
         <div className="flex gap-40">
           <div className="flex gap-16">
@@ -49,9 +49,9 @@ export default function Footer() {
               <ul>
                 {footerData.contact.map((item, i) => {
                   return (
-                    <li key={`contact_item_${item.name}`}>
+                    <li className='text-white/80' key={`contact_item_${item.name}`}>
                       {item.link ? (
-                        <Link to={item.link}>{item.name}</Link>
+                        <Link target='_blank' to={item.link}>{item.name}</Link>
                       ) : (
                         <>{item.name}</>
                       )}
@@ -67,7 +67,7 @@ export default function Footer() {
               <ul>
                 {footerData.socials.map((item, i) => {
                   return (
-                    <li key={`socials_item_${item.name}`}>
+                    <li className='text-white/80' key={`socials_item_${item.name}`}>
                       <Link target="_blank" to={item.link}>
                         {item.name}
                       </Link>
@@ -78,15 +78,15 @@ export default function Footer() {
             </div>
             <div className="flex flex-col  ">
               <h2 className="font-['Instrument'] text-3xl">About Me</h2>
-              <p>Finn Reinders is a creative Front-End web developer.</p>
+              <p className='text-white/80 w-60'>Hey! I am a self taught Front-End Developer. Specializing in Next.js and Framer Motion</p>
             </div>
           </div>
           <div className="flex flex-row w-fit h-fit  ">
-            <div className='flex flex-col'>
-            <h2 className="font-['Instrument'] text-3xl whitespace-nowrap">Latest Project</h2>
-              <p>Description</p>
-            </div>
-            <div className='w-20 h-20'><img className='object-cover w-full h-full' src={`${projectsArr[0].src}`} alt="" /></div>
+            <Link to={`/projects/${projectsArr[0].projectName}`}  className='flex flex-col w-60'>
+            <h2 className="font-['Instrument'] text-3xl whitespace-nowrap">{projectsArr[0].name} {projectsArr[0].name2}</h2>
+              <p className='w-full text-white/80'>Go check this project out it. It is the latest project i've created.</p>
+            </Link>
+            <div className='w-20 h-20'><img className='object-cover w-full h-full rounded-md' src={`${projectsArr[0].src}`} alt="" /></div>
           </div>
         </div>
       </motion.section>

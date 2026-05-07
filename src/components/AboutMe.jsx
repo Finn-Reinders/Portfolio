@@ -52,7 +52,7 @@ export default function AboutMe() {
         animate={inView && "enter"}
         exit={"exit"}
         variants={aboutMeEnter}
-        className="w-[40rem]  h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg shadow-lg"
+        className="w-[40rem]  h-fit flex flex-col bg-[#C0C0C0] p-4 rounded-lg shadow-lg z-20"
       >
         {inView && (
           <>
@@ -81,7 +81,7 @@ export default function AboutMe() {
         custom={0.4}
         animate={inView && "enter"}
         exit={"exit"}
-        className="h-fit w-40 p-2 bg-[#969696] rounded-lg absolute -right-24 -bottom-20 shadow-lg"
+        className="h-fit w-40 p-2 bg-[#969696] rounded-lg absolute -right-24 -bottom-20 shadow-lg z-30"
       >
         <SplitText
           text="Links"
@@ -109,7 +109,7 @@ export default function AboutMe() {
         custom={0.4}
         animate={inView && "enter"}
         exit={"exit"}
-        className="h-80 w-80 bg-[#969696] rounded-lg absolute -left-[12.5rem] -bottom-60 p-2 shadow-lg"
+        className="h-80 w-80 bg-[#969696] rounded-lg absolute -left-[10rem] -bottom-60 p-2 shadow-lg z-10"
       >
         <img src="/assets/images/portrait.jpg" className='w-full h-full object-cover rounded-md' alt="" />
       </motion.div>)}

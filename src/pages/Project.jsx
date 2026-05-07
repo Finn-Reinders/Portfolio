@@ -20,6 +20,11 @@ export default function Project() {
 
   const { projectName } = useParams();
   const project = projectsArr.find((p) => p.projectName === projectName);
+
+  if (!project) {
+    return <div>Project not found</div>;
+  }
+
   const {
     name,
     name2,
@@ -228,83 +233,95 @@ export default function Project() {
             </motion.div>
             <div className="absolute -left-64 w-fit h-fit  perspective-md">
               {/* Technologies Container */}
-              <motion.div
-                {...anim(itemPopUp)}
-                custom={{ delay: 0.2, rotation: -2, z: 10 }}
-                className="-rotate-2 px-5 -mt-1 py-2.5 rounded-xl shadow-md bg-[#969696] h-fit w-80"
-              >
-                <h1 className="font-['Instrument'] text-3xl">Technologies</h1>
-                <ul>
-                  {technologies.map((technology, i) => {
-                    return (
-                      <li className="flex flex-row h-5" key={`technology_${i}`}>
-                        <motion.span className='w-5' {...anim(clipPathAnim)} custom={1.3}>
-                          <img
-                            className="h-full object-contain"
-                            src={technology.src}
-                          />
-                        </motion.span>
-                        <motion.span
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ delay: 1.5 }}
-                          className="ml-1 mr-1.5 flex items-center"
+              {technologies && (
+                <motion.div
+                  {...anim(itemPopUp)}
+                  custom={{ delay: 0.2, rotation: -2, z: 10 }}
+                  className="-rotate-2 px-5 -mt-1 py-2.5 rounded-xl shadow-md bg-[#969696] h-fit w-80"
+                >
+                  <h1 className="font-['Instrument'] text-3xl">Technologies</h1>
+                  <ul>
+                    {technologies?.map((technology, i) => {
+                      return (
+                        <li
+                          className="flex flex-row h-5"
+                          key={`technology_${i}`}
                         >
-                          ·
-                        </motion.span>
-                        <SplitText
-                          type="char"
-                          text={technology.name}
-                          textsize="1rem"
-                          animationDelay={1.55}
-                          className="leading-[1.3] my-auto"
-                        ></SplitText>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </motion.div>
+                          <motion.span
+                            className="w-5"
+                            {...anim(clipPathAnim)}
+                            custom={1.3}
+                          >
+                            <img
+                              className="h-full object-contain"
+                              src={technology.src}
+                            />
+                          </motion.span>
+                          <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.5 }}
+                            className="ml-1 mr-1.5 flex items-center"
+                          >
+                            ·
+                          </motion.span>
+                          <SplitText
+                            type="char"
+                            text={technology.name}
+                            textsize="1rem"
+                            animationDelay={1.55}
+                            className="leading-[1.3] my-auto"
+                          ></SplitText>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </motion.div>
+              )}
+
               {/* Links Container */}
-              <motion.div
-                {...anim(itemPopUp)}
-                custom={{ delay: 0.4, rotation: 4, z: 20 }}
-                className="absolute -right-24 rotate-[4deg] px-5 py-2.5 -mt-8 w-32 rounded-xl bg-[#C0C0C0] flex flex-col shadow-md"
-              >
-                <h1 className="font-['Instrument'] text-3xl">Links</h1>
-                <ul className="w-full flex flex-row justify-between h-10">
-                  <a href={githubLink} target="_blank">
-                    <motion.li
-                      {...anim(clipPathAnim)}
+              {(githubLink || demoLink) && (
+                <motion.div
+                  {...anim(itemPopUp)}
+                  custom={{ delay: 0.4, rotation: 4, z: 20 }}
+                  className="absolute -right-24 rotate-[4deg] px-5 py-2.5 -mt-8 w-32 rounded-xl bg-[#C0C0C0] flex flex-col shadow-md"
+                >
+                  <h1 className="font-['Instrument'] text-3xl">Links</h1>
+                  <ul className="w-full flex flex-row justify-between h-10">
+                    <a href={githubLink} target="_blank">
+                      <motion.li
+                        {...anim(clipPathAnim)}
+                        className="aspect-square h-full"
+                      >
+                        <img
+                          src="/assets/images/github-logo.svg"
+                          className="object-cover w-full h-full"
+                          alt=""
+                        />
+                      </motion.li>
+                    </a>
+                    <a
+                      href={demoLink}
+                      target="_blank"
                       className="aspect-square h-full"
                     >
-                      <img
-                        src="/assets/images/github-logo.svg"
-                        className="object-cover w-full h-full"
-                        alt=""
-                      />
-                    </motion.li>
-                  </a>
-                  <a
-                    href={demoLink}
-                    target="_blank"
-                    className="aspect-square h-full"
-                  >
-                    <svg
-                      width="98"
-                      height="98"
-                      className='w-full h-full'
-                      viewBox="0 0 98 98"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M34.8769 67L31 63.1231L57.5846 36.5385H33.7692V31H67V64.2308H61.4615V40.4154L34.8769 67Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </a>
-                </ul>
-              </motion.div>
+                      <svg
+                        width="98"
+                        height="98"
+                        className="w-full h-full"
+                        viewBox="0 0 98 98"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M34.8769 67L31 63.1231L57.5846 36.5385H33.7692V31H67V64.2308H61.4615V40.4154L34.8769 67Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </a>
+                  </ul>
+                </motion.div>
+              )}
             </div>
             {/* Images Container */}
             <motion.div
@@ -340,10 +357,10 @@ export default function Project() {
                   <div className="flex w-full justify-between items-center">
                     <div className="w-[75%] flex flex-col">
                       <h2 className="w-full leading-[1]">
-                        {imageArr[imgIndex].title}
+                        {imageArr[imgIndex]?.title}
                       </h2>
                       <ul className="flex h-6 w-full overflow-hidden whitespace-nowrap technology-list">
-                        {imageArr[imgIndex].technologies.map((tech, i) => {
+                        {imageArr[imgIndex] && imageArr[imgIndex].technologies?.map((tech, i) => {
                           return (
                             <li
                               className="flex h-full w-fit text-sm font-thin"
@@ -351,7 +368,7 @@ export default function Project() {
                             >
                               {tech.name}
                               {i <
-                                imageArr[imgIndex].technologies.length - 1 && (
+                                imageArr[imgIndex]?.technologies?.length - 1 && (
                                 <span className="mx-1">·</span>
                               )}
                             </li>
@@ -372,13 +389,15 @@ export default function Project() {
                               })} */}
                       </ul>
                     </div>
-                    <Link
-                      to="/projects/:projectName/:descriptionModal"
-                      state={{ backgroundLocation: location }}
-                      className="w-[20%] aspect-square rounded-md"
-                    >
-                      <img src="/assets/svgs/arrow.svg" alt="" />
-                    </Link>
+                    {imageArr[imgIndex]?.href && (
+                      <Link
+                        to={imageArr[imgIndex]?.href}
+                        target="_blank"
+                        className="w-[20%] aspect-square rounded-md"
+                      >
+                        <img src="/assets/svgs/arrow.svg" alt="" />
+                      </Link>
+                    )}
                   </div>
                   <div className="flex gap-2">
                     {[...Array(imageArr.length)].map((_, i) => {

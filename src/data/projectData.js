@@ -84,20 +84,17 @@ export const projectsArr = [
     projectName: "portfolio-v2",
     name: "New",
     name2: "Portfolio",
-    src: "/assets/images/front/natlab.png",
+    src: "/assets/images/front/WIP.png",
     imageArr: [
       {
         src: "/assets/videos/other-projects.gif",
-        title: "Opening Animation",
+        title: "Project Opening Animation",
         technologies: [gsap, framerMotion],
       },
     ],
-    bg: "hsl(124 100 22)",
     technologies: [nextJs, gsap, framerMotion, tailwind],
-    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
-    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
     description:
-      "So I decided to make a new portfolio because I am not satisfied with this one. This time I am focussing on working on a website from a design and branding which I previously didn't really do. Sadly I started a little late on this portfolio so i can't apply for interships with it so I am just going to apply with this portfolio.",
+      "A redesigned portfolio with more content and more focus on the design. The reason I am redesigning my portfolio is that I'm not satisfied with my current one because there isn't enough thought put into the design or motion.",
   },
   {
     projectName: "natlab-website",
@@ -111,29 +108,23 @@ export const projectsArr = [
         technologies: [gsap, framerMotion],
       },
     ],
-    bg: "hsl(124 100 22)",
     technologies: [nextJs, gsap, framerMotion, tailwind],
-    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
-    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
     description:
-      "This is a project i got in the 8th phase on the SintLucas. The client for this project was NatLab.",
+      "A project for NatLab developed during my studies at SintLucas. The assignment isn't clear yet but the opening animation and navbar is finished already.",
   },
   {
     projectName: "opening-animation",
     name: "Opening",
     name2: "Animation",
-    src: "/assets/images/avenoir-explore.png",
+    src: "/assets/images/ravi-klaassens.png",
     imageArr: [
       {
-        src: "/assets/images/avenoir-explore.png",
-        title: "Explore Page",
+        src: "/assets/videos/ravi-klaassens-opening.gif",
+        title: "Opening Animation",
         technologies: [gsap, react],
       },
     ],
-    bg: "hsl(124 100 22)",
     technologies: [gsap, react, vite],
-    githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
-    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
     description:
       "Recreated the opening animation from Ravi Klaassen's portfolio that I found on Awwwards. My first time using GSAP, and it was the perfect fit – the timeline feature lets you chain animations together smoothly, which is exactly what you need for a slick page opener.",
   },
@@ -141,20 +132,26 @@ export const projectsArr = [
     projectName: "avenoir",
     name: "Avenoir",
     name2: "Clothing",
-    src: "/assets/images/avenoir-explore.png",
+    src: "/assets/images/front/WIP.png",
     imageArr: [
       {
+        src: "/assets/videos/avenoir-transition.gif",
+        href: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app",
+        title: "Page Transition",
+        technologies: [nextJs],
+      },
+      {
         src: "/assets/images/avenoir-explore.png",
+        href: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/explore",
         title: "Explore Page",
         technologies: [framerMotion, nextJs],
       },
     ],
-    bg: "hsl(124 100 22)",
-    technologies: [nextJs, typescript, framerMotion, tailwind, vite, mongoDB, vercel],
+    technologies: [nextJs, typescript, framerMotion, tailwind, mongoDB, vercel],
     githubLink: "https://github.com/Finn-Reinders/ambitie-p7-avenoir-clothing-catalogue.git",
-    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app/?_vercel_share=U2VD7aemCa8SkgqqEayoqJSfoPfNUfNA",
+    demoLink: "https://ambitie-p7-avenoir-clothing-catalog.vercel.app",
     description:
-      "Avenoir Clothing Catalogue is an ambitious project I started in my second year of web development, working alongside Daniël Bovee. The site is still in development, but the idea is simple: anyone can upload their own garments or share cool pieces they’ve found online. You can create an account easily with Google or your email, and start contributing to the catalogue. It’s a collaborative space for fashion lovers to discover, share, and showcase unique styles.",
+      "Avenoir Clothing Catalogue is an ambition project developed with Daniël Bovee. A collaborative platform where users can upload garments, share fashion discoveries, and contribute to a community-driven catalogue. Built with Next.js, TypeScript, Framer Motion, and MongoDB for a smooth, responsive experience.",
   },
   {
     projectName: "portfolio",
@@ -178,7 +175,6 @@ export const projectsArr = [
         technologies: [reactPageRouter, framerMotion, nextJs],
       },
     ],
-    bg: "hsl(124 100 22)",
     technologies: [
       react,
       framerMotion,
@@ -188,10 +184,10 @@ export const projectsArr = [
       threejs,
       lenis,
     ],
-    githubLink: "https://www.github.com",
+    githubLink: "https://github.com/Finn-Reinders/Portfolio",
     demoLink: "https://finnreinders.com",
     description:
-      "This portfolio is my creative playground and the result of my second deep dive into React. I’m still experimenting with new tools and ideas, so you’ll find a mix of animations, interactive elements, and a few things that might not be perfect yet (but that’s part of the fun). The site is a collection of my web development projects, design experiments, and a bit about me. Built with modern tech, it’s meant to be both a showcase and a space where I try out new things as I learn. If you want to see my current skills, just take a look at my project Avenoir Clothing Catalogue. Feel free to explore, check out my work, and get in touch if you want to connect or collaborate!",
+      "A React-based portfolio showcasing web development projects, animations, and interactive design experiments. Features a custom Three.js hero section, smooth page transitions powered by Framer Motion, and modern styling with Tailwind CSS.",
   },
   {
     projectName: "the-hub",
@@ -202,32 +198,10 @@ export const projectsArr = [
       {
         src: "/assets/images/front/thehub.png",
         title: "Front page",
-        technologies: [],
-      },
-      {
-        src: "/assets/images/dawg.jpg",
-        title: "wut da dawg doin",
-        technologies: [react, framerMotion, nextJs],
-      },
-      {
-        src: "/assets/images/photo6.jpg",
-        title: "6",
-        technologies: [postgreSql, framerMotion, nextJs],
+        href: "https://finn-reinders.github.io/the-hub",
       },
     ],
-    bg: "hsl(124 100 22)",
-    technologies: [
-      react,
-      framerMotion,
-      tailwind,
-      vite,
-      reactPageRouter,
-      threejs,
-      lenis,
-    ],
-    githubLink: "https://github.com/Finn-Reinders/Finn-Reinders.github.io",
-    demoLink: "https://finn-reinders.github.io/the-hub/",
     description:
-      "A personal portfolio website showcasing my web development skills, creative projects, and design philosophy. Built with modern technologies, it features interactive animations, responsive layouts, and a curated selection of work, offering visitors an engaging and immersive experience. The site also includes a contact form and links to my social profiles.",
+      "An early web development project built with vanilla JavaScript and HTML/CSS. This project marked the beginning of my web development journey and helped me discover my passion for creating interactive web experiences.",
   },
 ];
